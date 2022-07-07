@@ -1,0 +1,4 @@
+log.txt
+/target
+Cargo.lock
+**/target
