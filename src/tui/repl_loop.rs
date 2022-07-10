@@ -70,7 +70,8 @@ async fn create_store() -> Store<State, Action> {
   store
 }
 
-const AVAIL_CMDS: &str = "quit, exit, add-async, add-sync, save, load, clear, remove, reset, search, history, ip, air, help";
+const AVAIL_CMDS: &str =
+  "quit, exit, add-async, add-sync, save, load, clear, remove, reset, search, history, ip, air, help";
 
 pub async fn repl_loop(mut _store: Store<State, Action>) -> Result<(), Box<dyn Error>> {
   let shared_store: SharedStore<State, Action> = Arc::new(RwLock::new(_store));
