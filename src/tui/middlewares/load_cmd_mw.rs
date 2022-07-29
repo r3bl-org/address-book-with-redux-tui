@@ -18,7 +18,11 @@
 use std::io::Result;
 
 use async_trait::async_trait;
-use r3bl_rs_utils::{print_header, redux::AsyncMiddleware, style_error, style_primary, utils::print_prompt};
+use r3bl_rs_utils::{print_header,
+                    redux::AsyncMiddleware,
+                    style_error,
+                    style_primary,
+                    utils::print_prompt};
 use tokio::{fs::File, io::AsyncReadExt};
 
 use crate::{Action, Mw, State, Std, PROMPT_STR, STATE_JSON_FNAME};

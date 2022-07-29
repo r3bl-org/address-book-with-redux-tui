@@ -54,7 +54,10 @@ make_api_call_for! {
 /// - https://www.tousu.in/qa/?qa=463981/
 #[derive(Serialize, Deserialize, Debug)]
 pub struct AwairDataResponse {
-  #[serde(rename = "timestamp", deserialize_with = "from_rfc3339_str_to_date_time")]
+  #[serde(
+    rename = "timestamp",
+    deserialize_with = "from_rfc3339_str_to_date_time"
+  )]
   date_time: DateTime<FixedOffset>, /* Renamed field, original field `timestamp: String`. */
 
   #[serde(rename = "temp", deserialize_with = "from_c_to_f")]

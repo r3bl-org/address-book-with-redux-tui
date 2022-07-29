@@ -16,8 +16,8 @@
  */
 
 pub mod actions;
-pub mod state;
 pub mod reducer;
+pub mod state;
 
 // Re-export the following modules:
 pub use actions::*;

@@ -18,7 +18,11 @@
 use async_trait::async_trait;
 use r3bl_rs_utils::{redux::AsyncMiddleware, style_error, utils::print_prompt};
 
-use crate::{json_rpc::awair_local_api::make_request as awair_local_api, Action, Mw, State, PROMPT_STR};
+use crate::{json_rpc::awair_local_api::make_request as awair_local_api,
+            Action,
+            Mw,
+            State,
+            PROMPT_STR};
 
 #[derive(Default)]
 pub struct AirCmdMw;

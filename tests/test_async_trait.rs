@@ -62,7 +62,8 @@ impl Interface for Impl2 {
 async fn test_vec_of_impl() {
   let impl1 = Impl1::new();
   let impl2 = Impl2::new();
-  let vec: Vec<Arc<RwLock<dyn Interface>>> = vec![Arc::new(RwLock::new(impl1)), Arc::new(RwLock::new(impl2))];
+  let vec: Vec<Arc<RwLock<dyn Interface>>> =
+    vec![Arc::new(RwLock::new(impl1)), Arc::new(RwLock::new(impl2))];
   for item in vec.iter() {
     let item = item.clone();
     let result = item.read().await.run("world".to_string()).await;

@@ -16,9 +16,9 @@
  */
 
 pub mod constants;
+pub mod middlewares;
 pub mod renderer;
 pub mod repl_loop;
-pub mod middlewares;
 
 // Re-export the following modules:
 pub use constants::*;

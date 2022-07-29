@@ -39,7 +39,9 @@ impl IpResponse {
 }
 
 impl Display for IpResponse {
-  fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result { write!(f, "{}", self.as_str()) }
+  fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+    write!(f, "{}", self.as_str())
+  }
 }
 
 /// Example of the response from the [API](http://httpbin.org/ip):

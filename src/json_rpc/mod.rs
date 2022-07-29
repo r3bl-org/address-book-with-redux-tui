@@ -16,9 +16,9 @@
  */
 
 // Connect to source file.
-pub mod get_ip_api;
 pub mod awair_local_api;
 pub mod fake_contact_data_api;
+pub mod get_ip_api;
 
 // Re-export.
 pub use awair_local_api::*;
