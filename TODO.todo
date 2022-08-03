@@ -3,3 +3,6 @@
 ╯                             ╰┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄
 add tui:
   ☐ replace the UI w/ `tui` from `r3bl_rs_utils`
+  ☐ implement routing ideas here?
+  ☐ update docs? (for docs.rs)
+  ☐ update README?
