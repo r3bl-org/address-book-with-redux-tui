@@ -15,6 +15,11 @@
  *   limitations under the License.
  */
 
+// https://github.com/rust-lang/rust-clippy
+// https://rust-lang.github.io/rust-clippy/master/index.html
+#![warn(clippy::all)]
+#![warn(rust_2018_idioms)]
+
 // Connect to source files.
 pub mod address_book;
 pub mod json_rpc;
