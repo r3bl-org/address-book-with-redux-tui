@@ -20,5 +20,4 @@
 #![warn(clippy::all)]
 #![warn(rust_2018_idioms)]
 
-
 // Connect to source files.
