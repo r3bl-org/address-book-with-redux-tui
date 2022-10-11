@@ -19,8 +19,7 @@ use async_trait::async_trait;
 use r3bl_rs_utils::{fire_and_forget, redux::AsyncMiddlewareSpawns, utils::print_prompt};
 use tokio::task::JoinHandle;
 
-use crate::{json_rpc::{fake_contact_data_api::make_request as fake_contact_data_api,
-                       FakeContactData},
+use crate::{json_rpc::{fake_contact_data_api::make_request as fake_contact_data_api, FakeContactData},
             Action,
             Mw,
             State,
@@ -37,15 +36,13 @@ impl AsyncMiddlewareSpawns<State, Action> for AddAsyncCmdMw {
     fire_and_forget![{
       match action {
         Action::Mw(Mw::AsyncAddCmd) => {
-          let fake_data = fake_contact_data_api()
-            .await
-            .unwrap_or_else(|_| FakeContactData {
-              name: "Foo Bar".to_string(),
-              phone_h: "123-456-7890".to_string(),
-              email_u: "foo".to_string(),
-              email_d: "bar.com".to_string(),
-              ..FakeContactData::default()
-            });
+          let fake_data = fake_contact_data_api().await.unwrap_or_else(|_| FakeContactData {
+            name: "Foo Bar".to_string(),
+            phone_h: "123-456-7890".to_string(),
+            email_u: "foo".to_string(),
+            email_d: "bar.com".to_string(),
+            ..FakeContactData::default()
+          });
 
           let action = Action::Std(Std::AddContact(
             format!("{}", fake_data.name),

@@ -39,16 +39,13 @@ pub use tui::*;
 
 #[tokio::main]
 async fn main() {
-  with(
-    run_tui_app(args().filter_and_convert_to_strings()),
-    |result| async {
-      call_if_err(&result.await, &|err| {
-        eprintln!("{}: {}", style_error("Problem encountered"), err);
-        exit(1);
-      });
-      println!("{}", style_primary("Goodbye."));
-      exit(0);
-    },
-  )
+  with(run_tui_app(args().filter_and_convert_to_strings()), |result| async {
+    call_if_err(&result.await, &|err| {
+      eprintln!("{}: {}", style_error("Problem encountered"), err);
+      exit(1);
+    });
+    println!("{}", style_primary("Goodbye."));
+    exit(0);
+  })
   .await;
 }

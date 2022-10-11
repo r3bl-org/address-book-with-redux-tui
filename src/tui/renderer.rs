@@ -62,18 +62,9 @@ fn render(state: State) {
   fn contact_matches_search_term(contact: &Contact, search_term: &Option<String>) -> bool {
     match search_term {
       Some(search_term) => {
-        contact
-          .name
-          .to_lowercase()
-          .contains(&search_term.to_lowercase())
-          || contact
-            .email
-            .to_lowercase()
-            .contains(&search_term.to_lowercase())
-          || contact
-            .phone
-            .to_lowercase()
-            .contains(&search_term.to_lowercase())
+        contact.name.to_lowercase().contains(&search_term.to_lowercase())
+          || contact.email.to_lowercase().contains(&search_term.to_lowercase())
+          || contact.phone.to_lowercase().contains(&search_term.to_lowercase())
       }
       None => true,
     }
