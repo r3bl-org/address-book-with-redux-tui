@@ -23,7 +23,7 @@
 // Connect to source files.
 pub mod address_book;
 pub mod json_rpc;
-pub mod tui;
+pub mod app;
 
 // Re-exports.
 use std::{env::args, process::exit};
@@ -34,8 +34,8 @@ pub use json_rpc::*;
 use r3bl_rs_utils::{style_error,
                     style_primary,
                     utils::{call_if_err, with, ArgsToStrings}};
-use tui::run_tui_app;
-pub use tui::*;
+use app::run_tui_app;
+pub use app::*;
 
 #[tokio::main]
 async fn main() {

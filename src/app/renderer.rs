@@ -20,7 +20,7 @@ use r3bl_rs_utils::{print_header, redux::AsyncSubscriber, style_dimmed, tree_mem
 use rand::Rng;
 
 use crate::{address_book::{Contact, State},
-            tui::{DELAY_ENABLED, MAX_DELAY, MIN_DELAY}};
+            app::{DELAY_ENABLED, MAX_DELAY, MIN_DELAY}};
 
 #[derive(Default)]
 pub struct Renderer;
@@ -39,7 +39,7 @@ fn render(state: State) {
 
   if DELAY_ENABLED {
     // Artificial delay before rendering.
-    let delay_ms = rand::thread_rng().gen_range(MIN_DELAY..MAX_DELAY) as u64;
+    let delay_ms = rand::thread_rng().gen_range(MIN_DELAY..MAX_DELAY);
     std::thread::sleep(tokio::time::Duration::from_millis(delay_ms));
   }
 

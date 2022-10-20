@@ -39,7 +39,4 @@ impl HasId for Contact {
 
   /// Delegate this to `self.id`, which is type `usize`.
   fn get_id(&self) -> usize { self.id.get_id() }
-
-  /// Delegate this to `self.id`, which is type `usize`.
-  fn as_some(&self) -> Option<usize> { self.id.as_some() }
 }

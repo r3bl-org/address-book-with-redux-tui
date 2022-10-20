@@ -19,7 +19,7 @@ use async_trait::async_trait;
 use r3bl_rs_utils::{print_header, redux::AsyncMiddleware};
 use rand::Rng;
 
-use crate::{tui::{DELAY_ENABLED, MAX_DELAY, MIN_DELAY},
+use crate::{app::{DELAY_ENABLED, MAX_DELAY, MIN_DELAY},
             Action,
             State};
 
@@ -31,7 +31,7 @@ impl AsyncMiddleware<State, Action> for LoggerMw {
   async fn run(&self, action: Action, _state: State) -> Option<Action> {
     if DELAY_ENABLED {
       // Artificial delay before calling the function.
-      let delay_ms = rand::thread_rng().gen_range(MIN_DELAY..MAX_DELAY) as u64;
+      let delay_ms = rand::thread_rng().gen_range(MIN_DELAY..MAX_DELAY);
       std::thread::sleep(tokio::time::Duration::from_millis(delay_ms));
     }
     println!();
