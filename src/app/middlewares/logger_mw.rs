@@ -36,7 +36,7 @@ impl AsyncMiddleware<State, Action> for LoggerMw {
     }
     println!();
     print_header("logger_mw");
-    println!("action: {:?}", action);
+    println!("action: {action:?}");
     None
   }
 }

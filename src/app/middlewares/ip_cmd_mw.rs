@@ -29,7 +29,7 @@ impl AsyncMiddleware<State, Action> for IpCmdMw {
     if let Action::Mw(Mw::IpCmd) = action {
       match get_ip_api().await {
         Ok(resp_data) => {
-          println!("{}", resp_data);
+          println!("{resp_data}");
           print_prompt(PROMPT_STR).unwrap();
         }
         Err(e) => println!("{}", style_error(&e.to_string())),

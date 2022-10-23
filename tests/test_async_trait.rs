@@ -40,7 +40,7 @@ struct Impl1;
 
 #[async_trait]
 impl Interface for Impl1 {
-  async fn run(&self, arg: String) -> Option<String> { Some(format!("hello {}", arg)) }
+  async fn run(&self, arg: String) -> Option<String> { Some(format!("hello {arg}")) }
   fn new() -> Self { Self {} }
 }
 
@@ -48,7 +48,7 @@ struct Impl2;
 
 #[async_trait]
 impl Interface for Impl2 {
-  async fn run(&self, arg: String) -> Option<String> { Some(format!("hola {}", arg)) }
+  async fn run(&self, arg: String) -> Option<String> { Some(format!("hola {arg}")) }
   fn new() -> Self { Self {} }
 }
 

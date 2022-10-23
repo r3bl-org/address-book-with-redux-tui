@@ -30,7 +30,7 @@ impl AsyncMiddleware<State, Action> for AirCmdMw {
       if let Action::Mw(Mw::AirCmd) = action {
         match awair_local_api().await {
           Ok(resp_data) => {
-            println!("{:#?}", resp_data);
+            println!("{resp_data:#?}");
             print_prompt(PROMPT_STR).unwrap();
           }
           Err(e) => println!("{}", style_error(&e.to_string())),

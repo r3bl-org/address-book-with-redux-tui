@@ -20,7 +20,7 @@ use std::{error::Error, sync::Arc};
 use r3bl_rs_utils::{print_header,
                     redux::{AsyncMiddleware, AsyncMiddlewareSpawns, AsyncReducer, AsyncSubscriber, Store},
                     spawn_dispatch_action,
-                    style_dimmed,
+                    style_dim,
                     style_error,
                     style_primary,
                     utils::readline_with_prompt,
@@ -83,16 +83,16 @@ pub async fn repl_loop(mut _store: Store<State, Action>) -> Result<(), Box<dyn E
     let user_input = readline_with_prompt("r3bl> ")?;
     match user_input.as_str() {
       "help" => {
-        println!("{}: {}", style_primary("Available commands"), style_dimmed(AVAIL_CMDS));
+        println!("{}: {}", style_primary("Available commands"), style_dim(AVAIL_CMDS));
       }
       "quit" => break,
       "exit" => break,
       "add-sync" => {
         let id = random::<u8>();
         let action = Action::Std(Std::AddContact(
-          format!("John Doe #{}", id),
-          format!("jd@gmail.com #{}", id),
-          format!("123-456-7890 #{}", id),
+          format!("John Doe #{id}"),
+          format!("jd@gmail.com #{id}"),
+          format!("123-456-7890 #{id}"),
         ));
         spawn_dispatch_action!(shared_store, action);
       }
@@ -162,7 +162,7 @@ pub async fn repl_loop(mut _store: Store<State, Action>) -> Result<(), Box<dyn E
     }; // end match user_input.
 
     // Print confirmation at the end of 1 repl loop.
-    println!("{} {}", style_primary(&user_input), style_dimmed("was executed."));
+    println!("{} {}", style_primary(&user_input), style_dim("was executed."));
   }
 
   on_end(&shared_store.clone()).await;

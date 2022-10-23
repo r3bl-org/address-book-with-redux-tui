@@ -49,7 +49,7 @@ pub async fn do_save(state: &State) -> Option<Action> {
     println!(
       "Could not save state to: `{}` due to: {}",
       style_primary(STATE_JSON_FNAME),
-      style_error(&format!("{:#?}", error))
+      style_error(&format!("{error:#?}"))
     );
   }
   None

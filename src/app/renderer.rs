@@ -16,7 +16,7 @@
  */
 
 use async_trait::async_trait;
-use r3bl_rs_utils::{print_header, redux::AsyncSubscriber, style_dimmed, tree_memory_arena::HasId};
+use r3bl_rs_utils::{print_header, redux::AsyncSubscriber, style_dim, tree_memory_arena::HasId};
 use rand::Rng;
 
 use crate::{address_book::{Contact, State},
@@ -50,7 +50,7 @@ fn render(state: State) {
     if search_term.is_none() || contact_matches_search_term(contact, &search_term) {
       println!(
         "{} {} {} {}",
-        style_dimmed(&contact.get_id().to_string()),
+        style_dim(&contact.get_id().to_string()),
         contact.name,
         contact.email,
         contact.phone

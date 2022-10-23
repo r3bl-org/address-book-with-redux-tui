@@ -55,7 +55,7 @@ pub async fn do_load() -> Option<Action> {
       println!(
         "Did not load state from: `{}` due to: {}",
         style_primary(STATE_JSON_FNAME),
-        style_error(&format!("{:#?}", error))
+        style_error(&format!("{error:#?}"))
       );
       None
     }

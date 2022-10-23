@@ -23,7 +23,7 @@ use std::future::Future;
 async fn run() {
   let a = 1;
   let lambda = move || async move {
-    println!("\nrun: a={}", a);
+    println!("\nrun: a={a}");
     a
   };
   exec_lambda(lambda).await;
@@ -32,7 +32,7 @@ async fn run() {
 async fn run_2() {
   let a = 2;
   let lambda: Box<dyn Fn() -> _ + Send + 'static> = Box::new(move || async move {
-    println!("\nrun_2: a={}", a);
+    println!("\nrun_2: a={a}");
     a
   });
   exec_lambda(lambda).await;
